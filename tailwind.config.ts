@@ -1,13 +1,13 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -52,6 +52,21 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        n: {
+          1: "#FFFFFF",
+          2: "#CAC6DD",
+          3: "#ADA8C3",
+          4: "#757185",
+          5: "#3F3A52",
+          6: "#252134",
+          7: "#15131D",
+          8: "#0E0C15",
+          9: "#474060",
+          10: "#43435C",
+          11: "#1B1B2E",
+          12: "#2E2A41",
+          13: "#6C7275",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -72,9 +87,14 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      spacing: {
+        0.25: "0.0625rem",
+        7.5: "1.875rem",
+        15: "3.75rem",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
-export default config
+export default config;
