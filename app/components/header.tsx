@@ -7,6 +7,9 @@ import { useParams } from "next/navigation"
 import { navigationLinks } from "@/constants"
 
 import { cn } from "@/lib/utils"
+import { Button, buttonVariants } from "@/components/ui/button"
+import HamburgerMenu from "@/app/components/hamburger-menu"
+import GradientBorderButton from "@/app/components/icons/gradient-border-button"
 
 export default function Header() {
   const params = useParams()
@@ -36,13 +39,14 @@ export default function Header() {
             openNavigation ? "flex" : "hidden"
           )}
         >
-          <div className="z-2 relative m-auto flex flex-col items-center justify-center lg:flex-row">
+          {/* Desktop navigation */}
+          <div className="relative z-2 m-auto flex flex-col items-center justify-center lg:flex-row">
             {navigationLinks.map((link) => (
               <Link
                 key={link.id}
                 href={link.url}
                 className={cn(
-                  "font-code hover:text-color-1 relative block p-6 text-2xl uppercase text-n-1 transition-colors md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold lg:leading-5 lg:hover:text-n-1 xl:px-12",
+                  "relative block p-6 font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold lg:leading-5 lg:hover:text-n-1 xl:px-12",
                   link.onlyMobile ? "lg:hidden" : "",
                   link.url === hash ? "z-2 lg:text-n-1" : "lg:text-n-1/50"
                 )}
@@ -51,7 +55,30 @@ export default function Header() {
               </Link>
             ))}
           </div>
+
+          {/* Mobile navigation */}
+          <HamburgerMenu />
         </nav>
+
+        <Link
+          href="#signup"
+          className={cn(
+            buttonVariants({ variant: "primary" }),
+            "mr-8 hidden text-n-1/50 hover:text-n-1 lg:flex"
+          )}
+        >
+          New account
+        </Link>
+        <Link
+          className={cn(
+            buttonVariants({ variant: "primary" }),
+            "relative z-10 hidden lg:flex"
+          )}
+          href="#login"
+        >
+          <span className="z-30">Sign in</span>
+          <GradientBorderButton />
+        </Link>
       </div>
     </div>
   )
