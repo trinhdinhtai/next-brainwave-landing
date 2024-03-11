@@ -1,4 +1,5 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
+import { fontFamily } from "tailwindcss/defaultTheme"
 
 const config = {
   darkMode: ["class"],
@@ -67,6 +68,9 @@ const config = {
           12: "#2E2A41",
           13: "#6C7275",
         },
+        color: {
+          1: "#AC6AFF",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -87,14 +91,23 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        code: "var(--font-code)",
+        grotesk: "var(--font-grotesk)",
+      },
       spacing: {
         0.25: "0.0625rem",
         7.5: "1.875rem",
         15: "3.75rem",
       },
+      zIndex: {
+        1: "1",
+        2: "2",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+} satisfies Config
 
-export default config;
+export default config
